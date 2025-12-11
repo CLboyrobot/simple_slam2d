@@ -25,12 +25,12 @@ struct VoxelKeyHash2D
 };
 struct VoxelGrid2D
 {
-    Vec2f mean{Vec2f::Zero()};
-    Vec2f norm{Vec2f::Zero()};
-    Mat2f ppt{Mat2f::Zero()};
-    float count{0};
-    bool is_plane{false};
-    std::list<VoxelKey2D>::iterator position_iter{nullptr};
+    Vec2f mean{Vec2f::Zero()};// 网格内所有点的2D均值
+    Vec2f norm{Vec2f::Zero()};// 平面法向量（归一化），在2D中实际上是"法线"方向
+    Mat2f ppt{Mat2f::Zero()};// 点乘矩阵，增量式计算协方差矩阵
+    float count{0};// 网格内点的数量
+    bool is_plane{false};// 标记是否为有效平面
+    std::list<VoxelKey2D>::iterator position_iter{nullptr};// 在list中的位置迭代器
 };
 using VoxelMap2D = std::unordered_map<VoxelKey2D, VoxelGrid2D, VoxelKeyHash2D>;
 

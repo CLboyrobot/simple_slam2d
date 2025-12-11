@@ -21,7 +21,7 @@ inline void setPackage(const sensor_msgs::LaserScan::ConstPtr &msg, ScanPack &sc
         if (range < min_range || range > max_range || std::isinf(range) || std::isnan(range) || range < ignore_range)
             continue;
         float angle = normalize_theta(msg->angle_min + i * msg->angle_increment);
-        scan_pack.points.push_back(Vec2f(range * cos(angle), range * sin(angle)));
+        scan_pack.points.push_back(Vec2f(range * cos(angle), range * sin(angle)));//极坐标转笛卡尔坐标
     }
 }
 
