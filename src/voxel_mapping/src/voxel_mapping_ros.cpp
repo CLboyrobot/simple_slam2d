@@ -12,7 +12,7 @@ void VoxelMappingROS::loadParameters()
     m_nh.param<std::string>("map_frame", m_config.map_frame, "map");
     m_nh.param<std::string>("body_frame", m_config.body_frame, "body");
     m_nh.param<std::string>("scan_topic", m_config.scan_topic, "/laser/scan");
-    m_nh.param<std::string>("imu_topic", m_config.imu_topic, "/laser/imu");
+    m_nh.param<std::string>("imu_topic", m_config.imu_topic, "/imu");
     m_nh.param<float>("ignore_range", m_config.ignore_range, 0.5f);
 
     m_nh.param<float>("resolution", m_map_config.resolution, 0.05f);
